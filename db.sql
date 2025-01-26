@@ -1,10 +1,15 @@
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root_password';
 
 -- Создание базы данных
-CREATE DATABASE web_attack_test;
+CREATE DATABASE IF NOT EXISTS web_attack_test;
 
--- Использование созданной баз данных
+-- Использование созданной базы данных
 USE web_attack_test;
+
+-- Удаление таблиц
+DROP TABLE IF EXISTS users;
+
+DROP TABLE IF EXISTS auth_inf;
 
 -- Создание таблицы users
 CREATE TABLE users (
