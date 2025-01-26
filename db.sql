@@ -1,12 +1,10 @@
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root_password';
 
--- SET PASSWORD = PASSWORD('root_password');
-
 -- Создание базы данных
-CREATE DATABASE my_database;
+CREATE DATABASE web_attack_test;
 
--- Использование созданной базы данных
-USE my_database;
+-- Использование созданной баз данных
+USE web_attack_test;
 
 -- Создание таблицы users
 CREATE TABLE users (
@@ -18,8 +16,22 @@ CREATE TABLE users (
 
 -- Вставка данных в таблицу users
 INSERT INTO users (username, email) VALUES
-('user1', 'user1@example.com'),
-('user2', 'user2@example.com'),
-('user3', 'user3@example.com'),
-('user4', 'user4@example.com'),
-('user5', 'user5@example.com');
+('administrator', 'admin@google.com'),
+('Alex', 'Alex@yandex.ru'),
+('Roman', 'Roman@mail.ru'),
+('Alesya', 'Alesya@MIREA.ru'),
+('MIREA', 'MIREA@MIREA.ru');
+
+CREATE TABLE auth_inf (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    passwd TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+INSERT INTO auth_inf (user_id, passwd) VALUES
+(2, '123'),
+(3, '321'),
+(1, 'qwerty1234567890ytrewq'),
+(4, '111'),
+(5, '333');
