@@ -30,7 +30,7 @@ def test2_get():
 @app.route('/nwaf/2', methods=['POST'])
 def test2_post():
     username = request.form['text']
-    cur.execute("SELECT email FROM users WHERE username='{}'".format(username))
+    cur.execute("SELECT * FROM users WHERE username='{}'".format(username))
     
     result = cur.fetchall()
     return render_template('2.html', result=result)
@@ -62,22 +62,6 @@ def test4_post():
     
     result = cur.fetchall()
     return render_template('4.html', result=result)
-
-@app.route('/nonwaf/5')
-@app.route('/nwaf/5') 
-def test5_get():
-    return render_template('5.html', query="")
-
-@app.route('/nonwaf/5', methods=['POST'])
-@app.route('/nwaf/5', methods=['POST'])
-def test5_post():
-    name = request.form['name']
-    email = request.form['email']
-
-    cur.execute("INSERT INTO users (username, email) VALUES ('{}', '{}')".format(name, email))
-    
-    result = cur.fetchall()
-    return render_template('5.html', result=result)
 
 if __name__ == '__main__': # Запуск приложения
     # Connect to server

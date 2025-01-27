@@ -7,9 +7,9 @@ CREATE DATABASE IF NOT EXISTS web_attack_test;
 USE web_attack_test;
 
 -- Удаление таблиц
-DROP TABLE IF EXISTS users;
-
 DROP TABLE IF EXISTS auth_inf;
+
+DROP TABLE IF EXISTS users;
 
 -- Создание таблицы users
 CREATE TABLE users (

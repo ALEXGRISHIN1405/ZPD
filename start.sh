@@ -6,8 +6,10 @@ export MYSQL_DATABASE=test_db
 # export VIRTUAL_ENV=/home/korimedg/server/myenv
 # export PATH="$VIRUAL_ENV/bin:$PATH"
 
-service mysql restart &
-service nginx rabbitmg-server memcached nwaf_updater restart &
+service mysql stop
+service nginx rabbitmg-server memcached nwaf_updater stop
+service mysql start &
+service nginx rabbitmg-server memcached nwaf_updater start &
 sleep 5 &&
 mysql -u root -p$MYSQL_ROOT_PASSWORD < ./db.sql
 python3 -m venv myenv
