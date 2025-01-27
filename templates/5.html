@@ -1,0 +1,12 @@
+<a href=/>Index</a><br>
+<h3>Simple XSS attack while inserting into users table</h3>
+XSS: enter any_name&lt;script&gt;alert(&quot;XSS&quot;);&lt;/script&gt; into name or email<br>
+Enter user name and email to add users to DB<br>
+<form method="POST">
+<!--INSERT INTO users (username, email) VALUES ('administrator', 'admin@google.com');-->
+    <input name="name">
+    <input name="email">
+    <input type="submit">
+</form>
+{{ result }}
+
